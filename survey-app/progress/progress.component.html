@@ -1,0 +1,28 @@
+<div class="progress">
+    <div class="progress-content w-100">
+        <button class="left-arrow progress-arrow">
+            <img src="/assets/icons/left-arrow.svg" />
+        </button>
+        <div class="progress-container">
+            <div class=" position-relative ">
+                <div class="progress-bar">
+                    <div class="progress-line" #progressLine></div>
+                    <div class="dot active-dot" #dot>
+                        <div class="dot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stage-container d-flex align-items-center justify-content-between">
+                <div class="stage" [class.past-stage]="activePartIndex>=ind"
+                    *ngFor="let item of partsArr;let ind = index">
+                    <div class="dot"></div>
+                    <span class="stage-num">{{(ind == partsArr.length-1) ? 'Submit' : 'Part '+(ind+1) }}</span>
+                </div>
+            </div>
+        </div>
+        <button class="right-arrow progress-arrow">
+            <img src="/assets/icons/left-arrow.svg" />
+        </button>
+    </div>
+</div>

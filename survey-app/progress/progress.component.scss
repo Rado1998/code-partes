@@ -1,0 +1,115 @@
+@import "../../../../../assets/scss/variables.scss";
+
+.progress {
+    background: $white;
+    border: 1px solid #cfe2ff;
+    border-radius: 27px;
+    margin: 0 45px 50px 45px;
+    height: 54px;
+    &-content {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px;
+        .progress-container {
+            position: relative;
+            width: calc(100% - 40px);
+            margin: 11px 20px 0 20px;
+            .progress-bar {
+                width: 100%;
+                height: 11px;
+                border-radius: 6px;
+                background: #efefef;
+                .progress-line {
+                    background: #98d881;
+                    height: 100%;
+                    border-radius: inherit;
+                    transition: width $duration-short;
+                }
+                .active-dot {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: $black;
+                    position: absolute;
+                    z-index: 1;
+                    left: calc(50% - 13px);
+                    transition: left $duration-short;
+                }
+            }
+            .stage-container {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                .stage {
+                    position: relative;
+                    .dot {
+                        width: 11px;
+                        height: 11px;
+                        border-radius: 50%;
+                        background-color: #a3a3a3;
+                        position: absolute;
+                        margin: 0 auto;
+                        left: 0;
+                        right: 0;
+                    }
+                    &-num {
+                        display: block;
+                        text-align: center;
+                        font-size: 11px;
+                        line-height: 14px;
+                        font-weight: bold;
+                        margin-top: 15px;
+                        color: #a3a3a3;
+                    }
+                    &:first-child {
+                        .dot {
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+                    &:last-child {
+                        .dot {
+                            left: auto;
+                            right: 0;
+                        }
+                    }
+                }
+
+                .active-stage {
+                    .dot {
+                        width: 15px !important;
+                        height: 15px !important;
+                        background-color: $black !important;
+                    }
+                    .stage-num {
+                        color: #2da700 !important;
+                    }
+                }
+
+                .past-stage {
+                    .dot {
+                        background-color: #2da700 !important;
+                    }
+                    .stage-num {
+                        color: #2da700 !important;
+                    }
+                }
+            }
+        }
+        .progress-arrow {
+            background: rgba($color: #c4dcff, $alpha: 0.39);
+            border-radius: 29px;
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            padding: 0;
+            line-height: 0;
+        }
+        .right-arrow {
+            transform: rotate(180deg);
+        }
+    }
+}
